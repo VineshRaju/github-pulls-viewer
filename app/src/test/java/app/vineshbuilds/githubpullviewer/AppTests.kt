@@ -3,11 +3,6 @@ package app.vineshbuilds.githubpullviewer
 import app.vineshbuilds.githubpullviewer.presenter.PresenterImpl
 import org.junit.Test
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class AppTests {
     @Test
     fun inputVerificationTest() {
