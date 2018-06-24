@@ -8,6 +8,9 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 class PresenterImpl(val view: MainViewStub) : PresenterStub {
+    /**
+     * grabs the pull requests from github
+     */
     override fun getPulls(path: String) {
         if (verify(path)) {
             view.hideError()
@@ -32,10 +35,12 @@ class PresenterImpl(val view: MainViewStub) : PresenterStub {
         }
     }
 
-    //todo verify correct format ownername/reponame
     /**
-     *Verifies if the given path is valid
+     *Verifies if the given path is in the valid format
      * @return true if valid path else false
      */
-    private fun verify(path: String?) = path?.isNotBlank() ?: false
+    private val regex = Regex("[^\\s]*/[^\\s]*")
+
+    private fun verify(path: String?) = regex.matches(path ?: "")
+    //private fun verify(path: String?) = path?.isNotBlank() ?: false
 }
