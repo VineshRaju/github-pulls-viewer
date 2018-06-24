@@ -8,6 +8,18 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 class PresenterImpl(val view: MainViewStub) : PresenterStub {
+
+    companion object {
+        /**
+         *Verifies if the given path is in the valid format
+         * @return true if valid path else false
+         */
+        private val regex = Regex("[^\\s]+/[^\\s]+")
+
+        fun verify(path: String?) = regex.matches(path ?: "")
+        //private fun verify(path: String?) = path?.isNotBlank() ?: false
+    }
+
     /**
      * grabs the pull requests from github
      */
@@ -34,13 +46,4 @@ class PresenterImpl(val view: MainViewStub) : PresenterStub {
             view.showError("Incorrect Format")
         }
     }
-
-    /**
-     *Verifies if the given path is in the valid format
-     * @return true if valid path else false
-     */
-    private val regex = Regex("[^\\s]*/[^\\s]*")
-
-    private fun verify(path: String?) = regex.matches(path ?: "")
-    //private fun verify(path: String?) = path?.isNotBlank() ?: false
 }
