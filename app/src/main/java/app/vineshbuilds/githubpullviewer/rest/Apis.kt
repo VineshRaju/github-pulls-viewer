@@ -10,6 +10,8 @@ interface Apis {
     @GET("/repos/{repoPath}/pulls")
     fun getOpenPulls(
             @Path("repoPath", encoded = true) repoPath: String,
+            @Query("page") page: Int,
+            @Query("per_page") perPage: Int,
             @Query("state") state: String = "open"
     ): Single<List<PR>>
 }
