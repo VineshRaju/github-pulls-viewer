@@ -18,6 +18,7 @@
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:maxLines="2"
             android:text="@{pr.title}"
             android:textStyle="bold" />
@@ -39,7 +40,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{`Created At` + pr.createdAt}" />
+                android:text="@{`Created At ` + pr.createdAt}" />
         </LinearLayout>
 
         <View
