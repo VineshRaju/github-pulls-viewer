@@ -17,9 +17,10 @@
         <TextView
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
-            android:maxLines="2"
             android:layout_height="wrap_content"
-            android:text="@{pr.title}" />
+            android:maxLines="2"
+            android:text="@{pr.title}"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,13 +33,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:text="@{pr.id}" />
+                android:text="@{`#`+pr.number}" />
 
             <TextView
                 style="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{pr.createdAt}" />
+                android:text="@{`Created At` + pr.createdAt}" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent" />
     </LinearLayout>
 </layout>
